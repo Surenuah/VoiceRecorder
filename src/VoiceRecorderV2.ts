@@ -1,8 +1,12 @@
 import {createFFmpeg} from "@ffmpeg/ffmpeg";
 
 export async function VoiceRecorderV2(webmBlob: Blob): Promise<Blob> {
-    const ffmpeg = createFFmpeg({log: false});
-    await ffmpeg.load();
+    if (typeof window !== "undefined") {
+        const ffmpeg = createFFmpeg({ log: true });
+        await ffmpeg.load();
+    } else {
+        console.error("FFmpeg cannot run on server-side environments.");
+    }
 
     const inputName = 'input.webm';
     const outputName = 'output.mp3';
