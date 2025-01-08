@@ -1,11 +1,11 @@
 import './App.css';
-import {QueryClient, QueryClientProvider} from "react-query";
-import {VoiceRecorder} from "./VoiceRecorder.tsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { VoiceRecorderOpusCodec } from "./VoiceRecorderOpusCodec.tsx";
 
 const queryClient = new QueryClient();
 
 export const App = () => {
     return <QueryClientProvider client={queryClient}>
-        <VoiceRecorder />
+        <VoiceRecorderOpusCodec />
     </QueryClientProvider>
 }
